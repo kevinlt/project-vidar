@@ -18,7 +18,7 @@ class Vector:
         return math.sqrt(self.dx ** 2 + self.dy ** 2)
 
     def normalize(self) -> 'Vector':
-        if self.length() == 0:
+        if self.length() < 1e-6:
             self.dx = 0.
             self.dy = 0.
             return self
@@ -54,3 +54,6 @@ class Vector:
         self.dx = -self.dx
         self.dy = -self.dy
         return self
+
+    def is_nul(self) -> bool:
+        return abs(self.dx) < 1e-6 and abs(self.dy) < 1e-6

@@ -59,3 +59,7 @@ class TestVector:
         vector.reverse()
         assert -4. > vector.dx > -6.
         assert -1. > vector.dy > -3.
+
+    def test_vector_is_nul_if_dx_and_dy_are_plus_or_minus_epsilon(self):
+        vector = Vector(1e-10, 1e-10)
+        assert vector.is_nul()
