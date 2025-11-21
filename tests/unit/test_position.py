@@ -19,3 +19,9 @@ class TestPosition:
         newPos = position.add_vector(Vector(1.0,2.0))
         assert newPos.x == 2.0
         assert newPos.y == 4.0
+
+    def test_substract_position_gives_vector(self):
+        position = Position(5.0, 3.0)
+        vector = position.substract_position(Position(2.0, 1.0))
+        assert vector.dx == 3.0
+        assert vector.dy == 2.0
