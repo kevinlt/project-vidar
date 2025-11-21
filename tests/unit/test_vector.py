@@ -14,19 +14,23 @@ class TestVector:
 
     def test_normalize_null_vector_gives_null_vector(self):
         vector = Vector(0., 0.)
-        normalized_vector = vector.normalize()
-        assert normalized_vector.dx == 0.
-        assert normalized_vector.dy == 0.
+        vector.normalize()
+        assert vector.dx == 0.
+        assert vector.dy == 0.
 
     def test_normalize_vector_gives_unit_vector(self):
         vector = Vector(3., 4.)
-        normalized_vector = vector.normalize()
-        assert normalized_vector.dx == 0.6
-        assert normalized_vector.dy == 0.8
-        assert normalized_vector.length() == 1.
+        vector.normalize()
+        assert vector.length() == 1.
 
     def test_multiply_vector_by_scalar_return_new_vector(self):
         vector = Vector(1., 1.)
-        vector2 = vector.multiply(2.)
-        assert vector2.dx == 2.
-        assert vector2.dy == 2.
+        vector.multiply(2.)
+        assert vector.dx == 2.
+        assert vector.dy == 2.
+
+    def test_add_vector(self):
+        vector = Vector(1., 1.)
+        vector.add(Vector(2., 2.))
+        assert vector.dx == 3.
+        assert vector.dy == 3.

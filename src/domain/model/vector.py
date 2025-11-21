@@ -14,8 +14,18 @@ class Vector:
 
     def normalize(self) -> 'Vector':
         if self.length() == 0:
-            return Vector(0., 0.)
-        return Vector(self.dx / self.length(), self.dy / self.length())
+            self.dx = 0.
+            self.dy = 0.
+            return self
+        return self.multiply(1. / self.length())
 
     def multiply(self, scalar: float) -> 'Vector':
-        return Vector(self.dx * scalar, self.dy * scalar)
+        self.dx *= scalar
+        self.dy *= scalar
+        return self
+
+    def add(self, vector: 'Vector') -> 'Vector':
+        self.dx += vector.dx
+        self.dy += vector.dy
+        return self
+
