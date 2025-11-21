@@ -43,5 +43,10 @@ class Map:
         else:
             return Tile(TileType.OUTSIDE_MAP)
 
+    def set_tile(self, pos_x: int, pos_y:int, tile: Tile):
+        if not self.is_inside(pos_x, pos_y):
+            raise IndexError("Tuile hors de la map")
+        self.tiles[pos_y][pos_x] = tile
+
     def is_solid(self, pos_x: int, pos_y:int) -> bool:
         return self.get_tile(pos_x, pos_y).is_solid()

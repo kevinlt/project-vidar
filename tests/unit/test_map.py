@@ -1,3 +1,7 @@
+from logging import raiseExceptions
+
+import pytest
+
 from src.domain.model.map import Map, Tile, TileType
 
 
@@ -20,3 +24,8 @@ class TestMap:
         tiles = [[Tile(TileType.WALL), Tile(TileType.FLOOR)]]
         map = Map(10, 10, tiles)
         assert map.is_solid(0,0) == True
+
+    def test_cannot_set_tile_outside_map(self):
+        map = Map(10, 10)
+        with pytest.raises(IndexError):
+            map.set_tile(-1,0, Tile(TileType.WALL))
