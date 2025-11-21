@@ -40,3 +40,9 @@ class TestVector:
         vector.substract(Vector(1., 1.))
         assert vector.dx == 1.
         assert vector.dy == 1.
+
+    def test_vector_cannot_have_negative_value_after_substract(self):
+        vector = Vector(0., 0.)
+        vector.substract(Vector(1., 1.))
+        assert vector.dx == 0.
+        assert vector.dy == 0.

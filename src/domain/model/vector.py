@@ -30,7 +30,7 @@ class Vector:
         return self
 
     def substract(self, vector: 'Vector') -> 'Vector':
-        self.dx -= vector.dx
-        self.dy -= vector.dy
+        self.dx = max(0., self.dx - vector.dx)
+        self.dy = max(0., self.dy - vector.dy)
         return self
 
