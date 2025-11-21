@@ -1,3 +1,5 @@
+import math
+
 
 class Vector:
 
@@ -7,3 +9,6 @@ class Vector:
     def __init__(self, dx, dy):
         self.dx = dx
         self.dy = dy
+
+    def length(self) -> float:
+        return math.sqrt(self.dx ** 2 + self.dy ** 2)

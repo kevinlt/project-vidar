@@ -7,3 +7,7 @@ class TestVector:
         vector = Vector(1.0,2.0)
         assert vector.dx == 1.0
         assert vector.dy == 2.0
+
+    def test_vector_should_give_length(self):
+        vector = Vector(1.0, 2.0)
+        assert vector.length() == 2.23606797749979
