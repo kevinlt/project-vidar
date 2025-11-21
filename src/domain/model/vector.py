@@ -4,10 +4,12 @@ class Vector:
 
     dx: float
     dy: float
+    magnitude_max: float
 
-    def __init__(self, dx, dy):
+    def __init__(self, dx, dy, magnitude_max=2.0):
         self.dx = dx
         self.dy = dy
+        self.magnitude_max = magnitude_max
 
     def length(self) -> float:
         return math.sqrt(self.dx ** 2 + self.dy ** 2)
@@ -34,6 +36,13 @@ class Vector:
         self.dy = max(0., self.dy - vector.dy)
         return self
 
-    def angle(self, Vector2: 'Vector') -> float:
-        return math.atan2(Vector2.dy, Vector2.dx) - math.atan2(self.dy, self.dx)
+    def angle_of(self, vector: 'Vector') -> float:
+        return math.atan2(vector.dy, vector.dx) - math.atan2(self.dy, self.dx)
 
+    def angle(self) -> float:
+        return math.atan2(self.dy, self.dx)
+
+    def from_angle_magnitude(self, angle: float, magnitude: float) -> 'Vector':
+        self.dx = magnitude * math.cos(angle)
+        self.dy = magnitude * math.sin(angle)
+        return self

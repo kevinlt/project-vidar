@@ -49,4 +49,9 @@ class TestVector:
 
     def test_angle_between_vectors_is_0_if_a_vector_is_nul(self):
         vector = Vector(0., 0.)
-        assert vector.angle(Vector(1., 0.)) == 0.
+        assert vector.angle_of(Vector(1., 0.)) == 0.
+
+    def test_vector_should_have_max_magnitude_of_2(self):
+        vector = Vector(3., 4., 2.0)
+        vector.normalize()
+        assert vector.length() == 1.
