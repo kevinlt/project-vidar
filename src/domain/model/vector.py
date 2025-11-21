@@ -1,6 +1,5 @@
 import math
 
-
 class Vector:
 
     dx: float
@@ -12,3 +11,6 @@ class Vector:
 
     def length(self) -> float:
         return math.sqrt(self.dx ** 2 + self.dy ** 2)
+
+    def normalize(self):
+        return Vector(0.0, 0.0)
