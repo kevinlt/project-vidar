@@ -1,8 +1,20 @@
-from typing import Any
+from enum import Enum
 
-from src.domain.model.tile import Tile
-from src.domain.model.tile_type import TileType
+class TileType(Enum):
 
+    OUTSIDE_MAP = 0
+    FLOOR = 1
+    WALL = 2
+
+class Tile:
+
+    tile_type: 'TileType'
+
+    def __init__(self, tile_type: 'TileType'):
+        self.tile_type = tile_type
+
+    def is_solid(self) -> bool:
+        return self.tile_type in [TileType.WALL, TileType.OUTSIDE_MAP]
 
 class Map:
 
@@ -25,8 +37,11 @@ class Map:
     def is_inside(self, pos_x: int, pos_y:int) -> bool:
         return 0 <= pos_x < self.width and 0 <= pos_y < self.height
 
-    def get_tile(self, pos_x: int, pos_y:int) -> Tile:
+    def get_tile(self, pos_x: int, pos_y:int) -> 'Tile':
         if self.is_inside(pos_x, pos_y):
            return self.tiles[pos_y][pos_x]
         else:
             return Tile(TileType.OUTSIDE_MAP)
+
+    def is_solid(self, pos_x: int, pos_y:int) -> bool:
+        return self.get_tile(pos_x, pos_y).is_solid()
