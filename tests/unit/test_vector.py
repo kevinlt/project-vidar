@@ -41,21 +41,21 @@ class TestVector:
         assert vector.dx == 1.
         assert vector.dy == 1.
 
-    def test_vector_cannot_have_negative_value_after_substract(self):
-        vector = Vector(0., 0.)
-        vector.substract(Vector(1., 1.))
-        assert vector.dx == 0.
-        assert vector.dy == 0.
-
     def test_angle_between_vectors_is_0_if_a_vector_is_nul(self):
         vector = Vector(0., 0.)
         assert vector.angle_of(Vector(1., 0.)) == 0.
 
     def test_vector_should_have_max_magnitude_of_2(self):
-        vector = Vector(3., 4., 2.0)
+        vector = Vector(3., 4., 2.)
         vector.normalize()
         assert vector.length() == 1.
 
     def test_vector_should_be_normalized_if_magnitude_exceeds_max_magnitude(self):
-        vector = Vector(3., 4., 2.0)
+        vector = Vector(3., 4., 2.)
         assert vector.length() == 2.
+
+    def test_reverse_vector(self):
+        vector = Vector(5., 2.)
+        vector.reverse()
+        assert -4. > vector.dx > -6.
+        assert -1. > vector.dy > -3.

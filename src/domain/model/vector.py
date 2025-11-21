@@ -35,8 +35,8 @@ class Vector:
         return self
 
     def substract(self, vector: 'Vector') -> 'Vector':
-        self.dx = max(0., self.dx - vector.dx)
-        self.dy = max(0., self.dy - vector.dy)
+        self.dx -= vector.dx
+        self.dy -= vector.dy
         return self
 
     def angle_of(self, vector: 'Vector') -> float:
@@ -48,4 +48,9 @@ class Vector:
     def from_angle_magnitude(self, angle: float, magnitude: float) -> 'Vector':
         self.dx = magnitude * math.cos(angle)
         self.dy = magnitude * math.sin(angle)
+        return self
+
+    def reverse(self) -> 'Vector':
+        self.dx = -self.dx
+        self.dy = -self.dy
         return self
