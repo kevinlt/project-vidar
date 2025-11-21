@@ -34,3 +34,6 @@ class Vector:
         self.dy = max(0., self.dy - vector.dy)
         return self
 
+    def angle(self, Vector2: 'Vector') -> float:
+        return math.atan2(Vector2.dy, Vector2.dx) - math.atan2(self.dy, self.dx)
+

@@ -46,3 +46,7 @@ class TestVector:
         vector.substract(Vector(1., 1.))
         assert vector.dx == 0.
         assert vector.dy == 0.
+
+    def test_angle_between_vectors_is_0_if_a_vector_is_nul(self):
+        vector = Vector(0., 0.)
+        assert vector.angle(Vector(1., 0.)) == 0.
