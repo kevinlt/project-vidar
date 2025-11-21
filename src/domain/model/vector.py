@@ -16,3 +16,6 @@ class Vector:
         if self.length() == 0:
             return Vector(0., 0.)
         return Vector(self.dx / self.length(), self.dy / self.length())
+
+    def multiply(self, scalar: float) -> 'Vector':
+        return Vector(self.dx * scalar, self.dy * scalar)
