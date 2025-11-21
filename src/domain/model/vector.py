@@ -29,3 +29,8 @@ class Vector:
         self.dy += vector.dy
         return self
 
+    def substract(self, vector: 'Vector') -> 'Vector':
+        self.dx -= vector.dx
+        self.dy -= vector.dy
+        return self
+

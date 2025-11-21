@@ -34,3 +34,9 @@ class TestVector:
         vector.add(Vector(2., 2.))
         assert vector.dx == 3.
         assert vector.dy == 3.
+
+    def test_substract_vector(self):
+        vector = Vector(2., 2.)
+        vector.substract(Vector(1., 1.))
+        assert vector.dx == 1.
+        assert vector.dy == 1.
