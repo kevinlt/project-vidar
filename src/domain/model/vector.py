@@ -6,10 +6,13 @@ class Vector:
     dy: float
     magnitude_max: float
 
-    def __init__(self, dx, dy, magnitude_max=2.0):
+    def __init__(self, dx, dy, magnitude_max=5.0):
         self.dx = dx
         self.dy = dy
         self.magnitude_max = magnitude_max
+
+        if self.length() > magnitude_max:
+            self.normalize().multiply(magnitude_max)
 
     def length(self) -> float:
         return math.sqrt(self.dx ** 2 + self.dy ** 2)

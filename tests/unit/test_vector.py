@@ -55,3 +55,7 @@ class TestVector:
         vector = Vector(3., 4., 2.0)
         vector.normalize()
         assert vector.length() == 1.
+
+    def test_vector_should_be_normalized_if_magnitude_exceeds_max_magnitude(self):
+        vector = Vector(3., 4., 2.0)
+        assert vector.length() == 2.
