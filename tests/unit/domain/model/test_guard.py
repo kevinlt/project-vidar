@@ -1,3 +1,5 @@
+import pytest
+
 from src.domain.model.guard import Guard
 from src.domain.model.position import Position
 
@@ -27,3 +29,15 @@ class TestGuard:
         ]
         guard.patrol_points = patrol_points
         assert guard.current_patrol_index == 0
+
+    def test_guard_has_vision_angle(self):
+        guard = Guard()
+        assert guard.vision_angle is not None
+
+    def test_guard_vision_angle_is_not_lower_1(self):
+        with pytest.raises(ValueError):
+            Guard(0)
+
+    def test_guard_vision_angle_is_not_greater_360(self):
+        with pytest.raises(ValueError):
+            Guard(361)
