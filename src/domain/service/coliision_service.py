@@ -7,7 +7,13 @@ from src.domain.model.position import Position
 class CollisionService:
 
     @staticmethod
-    def is_traversable(map: Map, pos: Position) -> bool:
+    def position_to_tile(pos: Position) -> tuple[int, int]:
         tile_x = math.floor(pos.x)
         tile_y = math.floor(pos.y)
-        return not map.is_solid(tile_x, tile_y)
+        return tile_x, tile_y
+
+    @staticmethod
+    def is_traversable(map_obj: Map, pos: Position) -> bool:
+        tile_x, tile_y = CollisionService.position_to_tile(pos)
+        tile = map_obj.get_tile(tile_x, tile_y)
+        return not tile.is_solid()
