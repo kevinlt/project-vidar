@@ -1,9 +1,5 @@
 from src.domain.model.position import Position
 
-'''✅ RG – Étape 3 : Mouvement du joueur
-RG-M1 — Modèle du joueur
-Le joueur dispose au minimum des propriétés suivantes :
-slip_factor: float (glissement → influence l’écart entre direction du mouvement et direction visée)'''
 class Player:
 
     position: Position
