@@ -8,10 +8,13 @@ class Guard(Player):
     current_patrol_index: int
     patrol_radius: float = .5
     vision_angle: int = 60
+    vision_max_distance: float = 10.
 
-    def __init__(self, vision_angle: int = 60):
+    def __init__(self, vision_angle: int = 60, vision_max_distance: float = 10.):
         super().__init__()
         self.current_patrol_index = 0
         self.patrol_points = []
         if vision_angle < 1 or vision_angle > 360:
             raise ValueError("Vision angle must be between 1 and 360 degrees")
+        if vision_max_distance < 0:
+            raise ValueError("Vision max distance must be positive")

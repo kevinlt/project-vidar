@@ -41,3 +41,11 @@ class TestGuard:
     def test_guard_vision_angle_is_not_greater_360(self):
         with pytest.raises(ValueError):
             Guard(361)
+
+    def test_guard_has_vision_max_distance(self):
+        guard = Guard()
+        assert guard.vision_max_distance is not None
+
+    def test_guard_vision_max_distance_is_not_lower_0(self):
+        with pytest.raises(ValueError):
+            Guard(vision_max_distance=-1)
