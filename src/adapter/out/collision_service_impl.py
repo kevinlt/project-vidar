@@ -3,7 +3,7 @@ import math
 from src.domain.model.map import Map
 from src.domain.model.position import Position
 from src.domain.model.vector import Vector
-from src.domain.port.out.coliision_service_port import CollisionServicePort
+from src.domain.port.out.collision_service_port import CollisionServicePort
 
 
 class CollisionServiceImpl(CollisionServicePort):
