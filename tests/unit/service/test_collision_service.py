@@ -25,16 +25,17 @@ class TestCollisionService:
         pos = Position(-1., 5.)
         assert CollisionService.is_traversable(map, pos) == False
 
-    def test_try_to_move_should_gives_new_position_if_succeed(self):
-        map = self.define_map()
-        pos = Position(1., 1.)
-        vector = Vector(1., 1.)
-        assert isinstance(CollisionService.try_move(map, pos, vector), Position)
-
     def test_try_to_move_should_return_same_position_if_failed(self):
         map = self.define_map()
         pos = Position(1., 1.)
         vector = Vector(10., 10., 20)
-        new_pos = CollisionService.try_move(map, pos, vector)
+        new_pos, success = CollisionService.try_move(map, pos, vector)
         assert pos.x == new_pos.x
         assert pos.y == new_pos.y
+
+    def test_try_move_should_indicate_if_move_was_successful(self):
+        map = self.define_map()
+        pos = Position(1., 1.)
+        vector = Vector(1., 1.)
+        new_pos, success = CollisionService.try_move(map, pos, vector)
+        assert success == True

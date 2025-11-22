@@ -20,8 +20,8 @@ class CollisionService:
         return not tile.is_solid()
 
     @staticmethod
-    def try_move(map_obj: Map, pos: Position, vector: Vector) -> Position:
+    def try_move(map_obj: Map, pos: Position, vector: Vector) -> tuple[Position, bool]:
         new_pos = pos.add_vector(vector)
         if CollisionService.is_traversable(map_obj, new_pos):
-            return new_pos
-        return pos
+            return new_pos, True
+        return pos, False
