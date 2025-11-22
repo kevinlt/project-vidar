@@ -17,3 +17,7 @@ class CollisionService:
         tile_x, tile_y = CollisionService.position_to_tile(pos)
         tile = map_obj.get_tile(tile_x, tile_y)
         return not tile.is_solid()
+
+    @staticmethod
+    def try_move() -> Position:
+        return Position(0,0)
