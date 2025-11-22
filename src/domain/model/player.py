@@ -5,6 +5,7 @@ class Player:
 
     position: Position
     direction: float = 0.0
+    turn_rate: float = 0.01
 
     def __init__(self, position: Position = None):
         if position is None:
