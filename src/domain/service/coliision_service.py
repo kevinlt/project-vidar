@@ -2,6 +2,7 @@ import math
 
 from src.domain.model.map import Map
 from src.domain.model.position import Position
+from src.domain.model.vector import Vector
 
 
 class CollisionService:
@@ -19,5 +20,8 @@ class CollisionService:
         return not tile.is_solid()
 
     @staticmethod
-    def try_move() -> Position:
-        return Position(0,0)
+    def try_move(map_obj: Map, pos: Position, vector: Vector) -> Position:
+        new_pos = pos.add_vector(vector)
+        if CollisionService.is_traversable(map_obj, new_pos):
+            return new_pos
+        return pos
