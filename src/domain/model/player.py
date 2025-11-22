@@ -10,6 +10,7 @@ class Player:
     turn_rate: float = 0.01
     friction: float = 0.99
     slip_factor: float = 0.01
+    target_radius: float = 0.5
 
     def __init__(self, position: Position = None):
         if position is None:

@@ -55,3 +55,5 @@ class MovementService:
         dy = math.sin(direction) * velocity
         return Vector(dx, dy)
 
+    def has_reach_target(self, position: Position, target: Position, target_radius: float) -> bool:
+        return position.distance_to(target) < target_radius

@@ -5,7 +5,7 @@ from src.domain.model.position import Position
 from src.domain.port.out.collision_service_port import CollisionServicePort
 
 
-class GuardAiService(MovementService):
+class GuardMovementService(MovementService):
 
     collision_service: CollisionServicePort
 
@@ -22,6 +22,4 @@ class GuardAiService(MovementService):
     def update_patrol_index(self, guard: Guard) -> int:
         return (guard.current_patrol_index + 1) % len(guard.patrol_points)
 
-    def has_reach_target(self, position:Position, target: Position, patrol_radius: float) -> bool:
-        return position.distance_to(target) < patrol_radius
 

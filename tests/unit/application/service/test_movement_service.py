@@ -99,3 +99,8 @@ class TestPlayerMovementService:
         assert player.position.x == 5.
         assert player.position.y == 5.
         assert player.velocity == 0.
+
+    def test_player_has_reach_target(self):
+        player = Player()
+        player.position = Position(9.6, 10.)
+        assert self.movement_service.has_reach_target(player.position, Position(10., 10.), 5.) == True
